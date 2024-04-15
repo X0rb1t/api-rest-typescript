@@ -1,11 +1,11 @@
 // Import express
 import express from 'express';
+import { router } from '../routes/routers';
+import 'dotenv/config';
 
 const server = express();
-const port = 3000;
 
-server.get('/', (req, res) => {
-  res.send({ message: 'Hello World!' });
-});
+server.use(express.json());
+server.use(router);
 
-export { server, port };
+export { server };
